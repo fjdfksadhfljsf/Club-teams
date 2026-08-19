@@ -1,0 +1,19 @@
+name: Refresh KNHB Matches Daily
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06:00 UTC dagelijks
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - env:
+          TURSO_URL: libsql://knhb-matchen-fjdfksadhfljsf.aws-eu-west-1.turso.io
+          TURSO_TOKEN: ${{ secrets.TURSO_TOKEN }}
+        run: node refresh-matches.js
