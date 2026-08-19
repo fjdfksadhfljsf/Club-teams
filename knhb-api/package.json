@@ -1,0 +1,9 @@
+{
+  "name": "knhb-club-teams-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Publieke read-only API voor KNHB clubs/teams/wedstrijden, backed by Turso.",
+  "engines": {
+    "node": ">=20"
+  }
+}
